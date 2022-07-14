@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1653864068 source:d:\descargas\gameemulator\escrity\resource.rc
+	"resource.h"
+
+1653864070 d:\descargas\gameemulator\escrity\resource.h
+	<windows.h>
+
+1654876213 source:d:\descargas\gameemulator\escrity\main.cpp
+	<windows.h>
+	<stdio.h>
+	<string.h>
+	"resource.h"
+	"instrucciones.h"
+	"funciones.h"
+
+1654370137 source:d:\descargas\gameemulator\escrity\funciones.c
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	<stdlib.h>
+
+1654368881 d:\descargas\gameemulator\escrity\instrucciones.h
+
+1653620736 d:\descargas\gameemulator\escrity\funciones.h
+	"funciones.c"
+
+1654876396 d:\descargas\gameemulator\escrity\funciones.c
+	<stdio.h>
+	<windows.h>
+	<time.h>
+	<stdlib.h>
+

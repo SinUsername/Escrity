@@ -1,0 +1,30 @@
+#include "resource.h"
+
+DLG_MAIN DIALOGEX 6, 5, 194, 106
+
+CAPTION "Escrity"
+
+FONT 8, "Tahoma"
+
+STYLE 0x10CE0804
+
+BEGIN
+  CONTROL "crea.Asset.new(TEXT):" , IDC_EDIT_INPUT , "Edit" , 0x10010000 , 40 , 5 , 125 , 15
+  CONTROL "&Ejecutar", IDC_BTN_TEST, "Button", 0x10010000, 50,  30, 46, 15
+  CONTROL "&Salir", IDC_BTN_QUIT, "Button", 0x10010000, 117, 30, 46, 15
+END
+
+DLG_IMG DIALOGEX 7, 6, 196, 108
+
+CAPTION "Escrity Aseets img"
+
+FONT 8, "Tahoma"
+
+STYLE 0x10CE0804
+
+BEGIN
+  CONTROL "Name file..." , IDC_EDIT_NAME_FILE , "Edit" , 0x10010000 , 40 , 5 , 50 , 15
+  CONTROL "" , IDC_EDIT_DIBUJO , "Edit" , 0x10010000 , 80 , 5 , 50 , 15
+  CONTROL "&Guardar", IDC_BTN_GUARDAR , "Button", 0x10010000, 50,  30, 46, 15
+  CONTROL "&Atras", IDC_BTN_ATRAS , "Button", 0x10010000, 117, 30, 46, 15
+END
