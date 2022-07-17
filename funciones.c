@@ -5,6 +5,227 @@
 
 #include <stdlib.h>
 
+#define True 1
+
+typedef const char * ptring;
+typedef void Override;
+
+char INPUT[500];
+
+void sFile (const char * file, const char * data)
+{
+	FILE *archivo;
+
+	archivo = fopen(file, "a");
+
+	if (archivo == NULL)
+	{
+		perror("Escrity ");
+		return;
+	}
+	printf("Escrity: guardado: '%s'", file);
+	fprintf(archivo, "%s\n", data);
+	fclose(archivo);
+}
+
+int StrGenereRandom(int inicio, int fin)
+{
+    srand(time(NULL));
+    inicio = rand() % fin;
+
+    return inicio;
+}
+
+Override DuplicText(const char *text, int cantidad, int tipo)
+{
+    int fin = 0, ale = 0, figura;
+
+    if (tipo == 0)
+    {
+        while (1)
+        {
+            fin++;
+            printf("%s", text);
+            if (fin == cantidad)
+            {
+                break;
+            }
+        }
+    }
+    else if (tipo == 1)
+    {
+        while (1)
+        {
+            fin++;
+            printf("%s ", text);
+            if (fin == cantidad)
+            {
+                break;
+            }
+        }
+    }
+    if (tipo == 2)
+    {
+        while (1)
+        {
+            fin++;
+            printf("%s\n", text);
+            if (fin == cantidad)
+            {
+                break;
+            }
+        }
+    }
+
+    if (tipo == 3)
+    {
+        if (text == NULL)
+        {
+            while (1)
+            {
+                fin++;
+                printf(" ");
+                if (fin == cantidad)
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    if (tipo == -1)
+    {
+        while (fin != 1620)
+        {
+            fin++;
+            printf("#");
+            if (fin == cantidad)
+            {
+                break;
+            }
+        }
+    }
+
+    if (tipo == -2)
+    {
+        ale = StrGenereRandom(fin, 1660);
+        figura = StrGenereRandom(0, 5);
+        if (figura == 0)
+        {
+            while (fin != ale)
+            {
+                fin++;
+                printf("#");
+                if (fin == cantidad)
+                {
+                    break;
+                }
+            }
+        }
+        else if (figura == 1)
+        {
+            while (fin != ale)
+            {
+                fin++;
+                printf("&");
+                if (fin == cantidad)
+                {
+                    break;
+                }
+            }
+        }
+
+        if (figura == 3)
+        {
+            while (fin != ale)
+            {
+                fin++;
+                printf("[#]");
+                if (fin == cantidad)
+                {
+                    break;
+                }
+            }
+        }
+        else if (figura == 4)
+        {
+            while (fin != ale)
+            {
+                fin++;
+                printf("=");
+                if (fin == cantidad)
+                {
+                    break;
+                }
+            }
+        }
+    }
+}
+
+static void works (const char * work , int y){
+
+
+    GotoXY(0,y);
+    printf("%s",work);
+
+}
+
+void Edit_File(/*char start[500]*/)
+{
+    char save[] = "save";
+    char newFile[] = "1";
+    char file[500];
+
+    while (True)
+    {
+        CLS();
+        DuplicText("=", 80, 0);
+        GotoXY(26, 1);
+        printf("Escrity Edit\n");
+        printf("Archivo: main.c*\n");
+        printf("Configuracion: save for exit | 1 for create new file\n");
+        DuplicText("=", 80, 0);
+        works(INPUT,7);
+        printf("\n\n");
+        printf(">> ");
+        gets(INPUT);
+        if (strcmp(INPUT, save) == 0)
+        {
+            return;
+        }
+        if (strcmp(INPUT, newFile) == 0)
+        {
+            gets(file);
+
+            while (strcmp(INPUT, save) != 0)
+            {
+                system("clear");
+                DuplicText("=", 60, 0);
+                GotoXY(26, 1);
+                printf("Escrity Edit\n");
+                printf("Archivo: %s*\n", file);
+                printf("Configuracion: save for exit | 1 for create new file\n");
+                DuplicText("=", 60, 0);
+                printf("\n\n");
+                printf(">> ");
+                gets(INPUT);
+                if (strcmp(INPUT, save) == 0)
+                {
+                    return;
+                }
+                GotoXY(0, 23);
+                sFile(file, INPUT);
+                printf("\n");
+                Sleep(1200);
+            }
+        }
+        GotoXY(0, 23);
+        sFile("main.c", INPUT);
+        printf("\n");
+        Sleep(1200);
+    }
+}
+
 static void StringReadFileModeRB (const char *URL)
 {
 	FILE *lectura;
