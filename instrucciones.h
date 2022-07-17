@@ -9,15 +9,6 @@ typedef int var;
 
 #define N 50
 
-/*struct Append_Menu_Before_works{
-
-    Public work1[N];
-    Public work2[N];
-    Public work3[N];
-    Public work4[N];
-
-};*/
-
 Public creaArchivo[N] = "crea.file.new(TEXT):";
 Public abreArchivo[N] = "crea.file.open(FILE);";
 Public eliminaArchivo[N] = "crea.file.delete(FILE):";
@@ -31,7 +22,5 @@ Public multiplica[N] = "multiplica(N,N):";
 Public divide[N] = "divide(N,N):";
 Public comparaNum[N] = "nbrcmp(0,0):";
 Public comparaStr[N] = "strcmp(NULL , NULL):";
-Public crea[N+20] = "Escrity.crea.window.asset.new.img(TRUE):";
-Public crea2[N+20] = "Escrity.crea.window.asset.new.img(FALSE):";
-
+Public createProject[] = "Escrity.new.project.in(.c):";
 #endif // INSTRUCCIONES_H
