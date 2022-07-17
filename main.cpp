@@ -84,12 +84,25 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
                         asset(user3);
                     }
                     if(strcmp(user1,abreAssets) == 0){
-                        
+
                         printf("System : user : input : ");
                         fflush(stdin);
                         gets(user3);
-                        
-                        
+                        fileAssets(user3);
+
+
+                    }
+                    if(strcmp(user1,createProject) == 0){
+
+                        /*printf("System : user : input : ");
+                        fflush(stdin);
+                        gets(user3);*/
+
+                        File("main.c","/*New project game\nCode*/\n#include \"include/stringgame.h\"\n\n");
+                        MessageBox(hwndDlg , "Se ha creado el proyecto con exito..." , "System : New Project" , MB_ICONINFORMATION);
+                        SetTitle("Escrity : cmd : New project");
+                        Edit_File();
+
                     }
                     else if(user1 == " "){
                         File("UserFile.void",user1);
