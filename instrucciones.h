@@ -1,7 +1,7 @@
 #ifndef INSTRUCCIONES_H
 #define INSTRUCCIONES_H
 
-typedef char Public;
+/*typedef char Public;
 typedef char String[100];
 typedef char * string[500];
 typedef  char matrix[5][5];
@@ -23,4 +23,5 @@ Public divide[N] = "divide(N,N):";
 Public comparaNum[N] = "nbrcmp(0,0):";
 Public comparaStr[N] = "strcmp(NULL , NULL):";
 Public createProject[] = "Escrity.new.project.in(.c):";
+*/
 #endif // INSTRUCCIONES_H
