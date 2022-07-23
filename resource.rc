@@ -1,6 +1,6 @@
 #include "resource.h"
 
-DLG_MAIN DIALOGEX 6, 5, 194, 106
+DLG_MAIN DIALOGEX 6, 5, 294, 206
 
 CAPTION "Escrity"
 
@@ -9,7 +9,23 @@ FONT 8, "Tahoma"
 STYLE 0x10CE0804
 
 BEGIN
-  CONTROL "Escrity.new.project.in(.c):" , IDC_EDIT_INPUT , "Edit" , 0x10010000 , 40 , 5 , 125 , 15
-  CONTROL "&Ejecutar", IDC_BTN_TEST, "Button", 0x10010000, 50,  30, 46, 15
-  CONTROL "&Salir", IDC_BTN_QUIT, "Button", 0x10010000, 117, 30, 46, 15
+  CONTROL "Commands" , IDC_EDIT_INPUT , "EDIT" , 0x10010000 , 10 , 40 , 275 , 14
+  CONTROL "Assets" , IDC_EDIT_INPUT2 , "EDIT" , 0x10010000 , 10 , 100 , 275 , 14
+  CONTROL "&Ejecutar", IDC_BTN_TEST, "Button", 0x10010000, 130,  70, 46, 15
+  CONTROL "&Agregar", IDC_BTN_QUIT, "Button", 0x10010000, 130, 120, 46, 15
+END
+
+DLG_IMG DIALOGEX 7, 6, 196, 108
+
+CAPTION "Escrity Aseets img"
+
+FONT 8, "Tahoma"
+
+STYLE 0x10CE0804
+
+BEGIN
+  CONTROL "Name file..." , IDC_EDIT_NAME_FILE , "Edit" , 0x10010000 , 40 , 5 , 50 , 15
+  CONTROL "" , IDC_EDIT_DIBUJO , "Edit" , 0x10010000 , 80 , 5 , 50 , 15
+  CONTROL "&Guardar", IDC_BTN_GUARDAR , "Button", 0x10010000, 50,  30, 46, 15
+  CONTROL "&Atras", IDC_BTN_ATRAS , "Button", 0x10010000, 117, 30, 46, 15
 END
