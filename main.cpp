@@ -104,16 +104,14 @@ HINSTANCE hInst;
 
 void InsertarMenu(HWND hWnd);
 
-int EscrityWindowImg(UINT uMsg, HWND hwndDlg);
-
 int window();
 
 BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     String user1, user2, user3, user4;
     float N1, N2, N3, num1, num2, result;
-    char Item_save1;
-    void * VoidText = NULL;
+    //char Item_save1;
+    //void * VoidText = NULL;
 
     switch (uMsg)
     {
@@ -144,11 +142,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
         case IDC_BTN_QUIT:
 
             GetDlgItemText(hwndDlg, IDC_EDIT_INPUT2, user1, 100);
-            if(strcmp(user1,(const char *)VoidText) == 0){
-
-                MessageBox(hwndDlg , "Error al insertar este asset en el archivo 'assets.h'","Escrity : error",MB_ICONERROR);
-
-            }
+            
             sFile2("assets.h","Public ");
             sFile2("assets.h",user1);
             sFile2("assets.h",user1);
@@ -222,7 +216,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
             {
                 printf("System: Escrity: crea.importation.math.suma.NULL.output.new.number: N: ");
                 fflush(stdin);
-                scanf("%d", &num1);
+                scanf("%i", &num1);
                 printf("System: Escrity: crea.importation.math.suma.NULL.output.new.number: N: ");
                 fflush(stdin);
                 scanf("%f", &num2);
@@ -332,7 +326,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             GetDlgItemText(hwndDlg, IDC_EDIT_INPUT, user1, 100);
 
-            if(strcmp(user1,(const char *)VoidText) == 0){
+            /*if(strcmp(user1,(const char *)VoidText) == 0){
 
                 SetTitle("Escrity : cmd : error");
 
@@ -342,7 +336,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
                 return TRUE;
 
-            }
+            }*/
 
             if (remove(user1) == -1)
                 {
@@ -377,11 +371,11 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
         case CM_CREADOR_TEXTURE:
 
             GetDlgItemText(hwndDlg, IDC_EDIT_INPUT2, user1, 100);
-            if(strcmp(user1,(const char *)VoidText) == 0){
+            /*if(strcmp(user1,(const char *)VoidText) == 0){
 
                 MessageBox(hwndDlg , "Error al crear la texture en el archivo 'textures.h'","Escrity : error",MB_ICONERROR);
 
-            }
+            }*/
 
             sFile2("textures.h","//Esta es una texture de ");
             sFile("textures.h",user1);
@@ -418,25 +412,21 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
             sFile2("textures.h",user1);
             sFile2("textures.h",".content");
             sFile2("textures.h",",\"");
-            sFile2("textures.h","(Strings nulls)");
-            sFile("textures.h","\");");
-            sFile2("textures.h","StrPrintTexture(&");
+            sFile2("textures.h","(Data or texture)");
+            sFile("textures.h","\"); //Here you data or strings");
+            sFile2("textures.h","    StrPrintTexture(&");
             sFile2("textures.h",user1);
             sFile("textures.h",");");
             sFile("textures.h","}");
             sFile("textures.h","");
+            MessageBox(hwndDlg , "Se ha guardado la texture en el archivo 'textures.h" , "Escrity : save texture" , MB_ICONINFORMATION);
 
 
         return TRUE;
 
         case CM_CREADOR_ASSET:
 
-            GetDlgItemText(hwndDlg, IDC_EDIT_INPUT2, user1, 100);
-            if(strcmp(user1,(const char *)VoidText) == 0){
-
-                MessageBox(hwndDlg , "Error al crear el asset en el archivo 'newAssets.h'","Escrity : error",MB_ICONERROR);
-
-            }
+            GetDlgItemText(hwndDlg, IDC_EDIT_INPUT2, user1, 100);        
 
             sFile2("newAssets.h","//Este es un asset de ");
             sFile("newAssets.h",user1);
@@ -457,13 +447,13 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
             sFile2("newAssets.h","    ");
             sFile2("newAssets.h","strcpy(\"");
             sFile2("newAssets.h",user1);
-            sFile2("newAssets.h",".name,\"asset_");
+            sFile2("newAssets.h",".name\",\"asset_");
             sFile2("newAssets.h",user1);
             sFile("newAssets.h","\");");
             sFile2("newAssets.h","    ");
             sFile2("newAssets.h","strcpy(\"");
             sFile2("newAssets.h",user1);
-            sFile2("newAssets.h",".data,\"(Strings Nulls)");
+            sFile2("newAssets.h",".data\",\"(Strings Nulls)");
             sFile("newAssets.h","\");");
             sFile2("newAssets.h","    ");
             sFile2("newAssets.h","StrAssetStart(&");
@@ -479,6 +469,8 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
             sFile("newAssets.h",");");
             sFile("newAssets.h","}");
             sFile("newAssets.h","");
+            
+            MessageBox(hwndDlg , "Se ha guardado el asset en el archivo 'newAssets.h" , "Escrity : save asset" , MB_ICONINFORMATION);
 
         return TRUE;
         }
@@ -780,45 +772,4 @@ void InsertarMenu(HWND hWnd)
     AppendMenu(hMenu1, MF_STRING | MF_POPUP, (UINT)hMenu3, "&Assets");
     AppendMenu(hMenu1, MF_STRING | MF_POPUP, (UINT)hMenu4, "&Commands");
     SetMenu(hWnd, hMenu1); /* Asigna el menú a la ventana hWnd */
-}
-
-int EscrityWindowImg(UINT uMsg, HWND hwndDlg)
-{
-    /*HINSTANCE hInstance;
-    hInst = hInstance;
-
-    DialogBox(hInstance, MAKEINTRESOURCE(DLG_IMG), NULL, (DLGPROC)DialogProc);*/
-
-    String user1, user2;
-
-    switch (uMsg)
-    {
-    case WM_INITDIALOG:
-        SetTitle("Escrity : Asset : img");
-        InsertarMenu(hwndDlg);
-        return TRUE;
-    case WM_CLOSE:
-        EndDialog(hwndDlg, 0);
-        return TRUE;
-    case IDC_BTN_ATRAS:
-        EndDialog(hwndDlg, 0);
-        return TRUE;
-    case IDC_BTN_GUARDAR:
-
-        GetDlgItemText(hwndDlg, IDC_EDIT_NAME_FILE, user1, 100);
-        GetDlgItemText(hwndDlg, IDC_EDIT_DIBUJO, user2, 100);
-
-        if (user1 == " " || user2 == " ")
-        {
-            MessageBox(hwndDlg, "Error al crear el archivo. Verifique que tenga nombre o este con datos", "System : Error : Escrity : File", MB_ICONERROR);
-            EndDialog(hwndDlg, 0);
-        }
-        else
-        {
-            MessageBox(hwndDlg, "Se ha guardado el archivo con exito", "System : Save : Escrity : File", MB_ICONINFORMATION);
-            sFile(user1, user2);
-        }
-
-        return TRUE;
-    }
 }
