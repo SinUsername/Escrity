@@ -6,8 +6,6 @@
 //#include "escrityworks.h"
 
 #define ESPACE 100
-#define N 100
-
 
 #define True 1
 
