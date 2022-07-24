@@ -216,7 +216,7 @@ BOOL CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
             {
                 printf("System: Escrity: crea.importation.math.suma.NULL.output.new.number: N: ");
                 fflush(stdin);
-                scanf("%i", &num1);
+                scanf("%f", &num1);
                 printf("System: Escrity: crea.importation.math.suma.NULL.output.new.number: N: ");
                 fflush(stdin);
                 scanf("%f", &num2);
